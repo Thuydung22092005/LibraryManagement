@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quản lý độc giả</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="profile">
+      <div class="avatar">👤</div>
+      <div class="username"><span id="usernameDisplay"></span></div>
+    </div>
+    <ul class="menu">
+      <li onclick="navigateTo('home.html')">Trang chủ</li>
+      <li onclick="navigateTo('account.html')">Quản lý tài khoản</li>
+      <li onclick="navigateTo('documents.html')">Quản lý tài liệu</li>
+      <li class="active">Quản lý độc giả</li>
+      <li onclick="navigateTo('borrows.html')">Quản lý mượn trả</li>
+      <li onclick="navigateTo('reports.html')">Báo cáo - thống kê</li>
+    </ul>
+    <div class="logout-section">
+      <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <!-- Danh sách độc giả -->
+    <div id="readerListSection">
+      <div class="account-header">
+        <h2>Danh sách độc giả trong hệ thống</h2>
+        <button class="add-btn" onclick="document.getElementById('addReaderSection').classList.remove('hidden');document.getElementById('readerListSection').classList.add('hidden');">Thêm độc giả</button>
+      </div>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Tìm kiếm độc giả" />
+        <i class="fas fa-search search-icon"></i>
+      </div>
+      <table class="account-table">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Mã độc giả</th>
+            <th>Tên độc giả</th>
+            <th>Email</th>
+            <th>Ngày đăng ký</th>
+            <th>Chỉnh sửa</th>
+            <th>Xoá</th>
+          </tr>
+        </thead>
+        <tbody id="readerTable"></tbody>
+      </table>
+    </div>
+
+    <!-- Form thêm độc giả -->
+    <div class="add-account-section hidden" id="addReaderSection">
+      <div class="account-form-container">
+        <h2 class="form-title">Thêm độc giả</h2>
+        <form class="account-form">
+          <div class="account-form-grid">
+            <div class="form-left">
+              <div class="form-row"><label for="newReaderCode">Mã độc giả</label><input type="text" id="newReaderCode" required></div>
+              <div class="form-row"><label for="newReaderName">Tên độc giả</label><input type="text" id="newReaderName" required></div>
+              <div class="form-row"><label for="newReaderEmail">Email</label><input type="email" id="newReaderEmail" required></div>
+            </div>
+            <div class="form-right">
+              <div class="form-row"><label for="newReaderPhone">Số điện thoại</label><input type="text" id="newReaderPhone" required></div>
+              <div class="form-row"><label for="newReaderAddress">Địa chỉ</label><input type="text" id="newReaderAddress" required></div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-primary" onclick="saveNewReader()">Lưu</button>
+            <button type="button" class="btn-secondary" onclick="navigateTo('readers.html')">Thoát</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Form chỉnh sửa thông tin độc giả -->
+    <div class="add-account-section hidden" id="editReaderSection">
+      <div class="account-form-container">
+        <h2 class="form-title">Thông tin độc giả</h2>
+        <form class="account-form">
+          <div class="account-form-grid">
+            <div class="form-left">
+              <div class="form-row"><label for="infoReaderCode">Mã độc giả</label><input type="text" id="infoReaderCode" disabled></div>
+              <div class="form-row"><label for="infoReaderName">Tên độc giả</label><input type="text" id="infoReaderName"></div>
+              <div class="form-row"><label for="infoReaderEmail">Email</label><input type="email" id="infoReaderEmail"></div>
+            </div>
+            <div class="form-right">
+              <div class="form-row"><label for="infoReaderPhone">Số điện thoại</label><input type="text" id="infoReaderPhone"></div>
+              <div class="form-row"><label for="infoReaderAddress">Địa chỉ</label><input type="text" id="infoReaderAddress"></div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-primary" onclick="updateReader()">Cập nhật</button>
+            <button type="button" class="btn-danger" onclick="deleteReaderConfirmed()">Xoá</button>
+            <button type="button" class="btn-secondary" onclick="navigateTo('readers.html')">Thoát</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

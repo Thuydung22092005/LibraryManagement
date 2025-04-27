@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thư viện công cộng</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <div class="public-header">
+        <div class="menu-container">
+            <i class="fas fa-user-circle"></i> <span id="usernameDisplay"></span>
+          <!-- Icon menu -->
+          <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+          </div>
+          <!-- Dropdown menu -->
+          <div class="dropdown">
+            </button>
+            <div class="dropdown-content">
+              <a href="borrow-history.html">Lịch sử mượn trả</a>
+              <a href="#" onclick="logout()">Đăng xuất</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  <div class="main-content-public">
+    <!-- Thanh tìm kiếm -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Tìm kiếm tài liệu" />
+      <i class="fas fa-search search-icon" onclick="searchDocument()"></i>
+    </div>
+
+    <!-- Kết quả tìm kiếm -->
+    <div class="document-details hidden" id="documentDetails">
+      <div class="document-image">
+        <img src="book-placeholder.png" alt="Ảnh tài liệu" />
+      </div>
+      <div class="document-info">
+        <div class="form-row">
+          <label for="documentName">Tên tài liệu</label>
+          <input type="text" id="documentName" disabled />
+        </div>
+        <div class="form-row">
+          <label for="documentPublisher">Nhà xuất bản</label>
+          <input type="text" id="documentPublisher" disabled />
+        </div>
+        <div class="form-row">
+          <label for="documentYear">Ngày xuất bản</label>
+          <input type="text" id="documentYear" disabled />
+        </div>
+        <div class="form-row">
+          <label for="documentCategory">Danh mục</label>
+          <input type="text" id="documentCategory" disabled />
+        </div>
+        <div class="form-row">
+          <label for="documentAuthor">Tác giả</label>
+          <input type="text" id="documentAuthor" disabled />
+        </div>
+        <div class="form-row">
+          <label for="documentPrice">Giá tiền</label>
+          <input type="text" id="documentPrice" disabled />
+        </div>
+      </div>
+    </div>
+
+    <!-- Mô tả tài liệu -->
+    <div class="document-description hidden" id="documentDescription">
+      <h3>Mô tả tài liệu</h3>
+      <p id="documentDescriptionText"></p>
+    </div>
+  </div>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>
